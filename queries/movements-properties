@@ -1,0 +1,19 @@
+SELECT ?followsLabel ?followedbyLabel ?starttime ?endtime 
+WHERE
+{
+  OPTIONAL {
+    wd:Q1474884 wdt:P156 ?followedby .
+    ?followedby rdfs:label ?followedby_label filter (lang(?followedby_label) = "ru") .
+  }
+  OPTIONAL {
+    wd:Q1474884 wdt:P155 ?follows .
+    ?follows rdfs:label ?follows_label filter (lang(?follows_label) = "ru") .
+  }
+  OPTIONAL {
+    wd:Q1474884 wdt:P580 ?starttime .
+  }
+  OPTIONAL {
+    wd:Q1474884 wdt:P582 ?endtime .
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ru,[AUTO_LANGUAGE]". }
+}

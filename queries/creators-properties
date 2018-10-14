@@ -1,0 +1,18 @@
+SELECT ?dateofbirth ?dateofdeath ?movement_label ?country_label
+WHERE
+{
+  OPTIONAL {
+    wd:Q3014582 wdt:P569 ?dateofbirth .
+  }
+  OPTIONAL {
+    wd:Q3014582 wdt:P570 ?dateofdeath .
+  }
+  OPTIONAL {
+    wd:Q3014582 wdt:P135 ?movement .
+    ?movement rdfs:label ?movement_label filter (lang(?movement_label) = "ru") .
+  }
+  OPTIONAL {
+    wd:Q3014582 wdt:P27 ?country .
+    ?country rdfs:label ?country_label filter (lang(?country_label) = "ru") .
+  }
+}

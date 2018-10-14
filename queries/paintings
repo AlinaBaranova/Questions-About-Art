@@ -1,0 +1,9 @@
+SELECT ?painting ?paintingLabel 
+WHERE 
+{ 
+  ?painting wdt:P31 wd:Q3305213.
+  ?painting wdt:P135 wd:Q37853 . 
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ru,[AUTO_LANGUAGE]". } 
+} 
+LIMIT 200

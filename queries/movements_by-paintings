@@ -1,0 +1,14 @@
+SELECT ?movement ?movementLabel ?count
+WHERE
+{
+  {
+    SELECT ?movement (COUNT(?painting) AS ?count) WHERE {
+      ?painting wdt:P31 wd:Q3305213.
+      ?painting wdt:P135 ?movement.
+    }
+    GROUP BY ?movement
+  }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "ru,[AUTO_LANGUAGE]". }
+}
+ORDER BY DESC(?count)
+LIMIT 50

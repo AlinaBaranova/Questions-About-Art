@@ -1,0 +1,15 @@
+SELECT ?inception ?movement_label ?creator_label
+WHERE
+{
+  OPTIONAL {
+    wd:Q2626595 wdt:P571 ?inception .
+  }
+  OPTIONAL {
+    wd:Q2626595 wdt:P135 ?movement .
+    ?movement rdfs:label ?movement_label filter (lang(?movement_label) = "ru") .
+  }
+  OPTIONAL {
+    wd:Q2626595 wdt:P170 ?creator .
+    ?creator rdfs:label ?creator_label filter (lang(?creator_label) = "ru") .
+  }
+}
